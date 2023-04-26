@@ -1,4 +1,4 @@
-import { TaskList } from "components/UsersList/UserList";
+import { TweetsList } from "components/TweetsListH/TweetsList";
 import { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { fetchUsers } from "redux/operations";
 import { StatusFilter } from "components/StatusFilter/StatusFilter";
 
 
-const Users = () => {
+const Tweets = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(selectLoading);
     const location = useLocation();
@@ -20,12 +20,12 @@ const Users = () => {
 
     return (
         <>
-            <Link to={backLinkHref.current}> &#8592; Go Back </Link>
+            <Link to={backLinkHref.current}> Go Back </Link>
             <StatusFilter />
             <div>{isLoading && 'Request in progress...'}</div>
-            <TaskList />
+            <TweetsList />
         </>
     )
 };
 
-export default Users;
+export default Tweets;

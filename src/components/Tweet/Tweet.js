@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
 import { follow } from "redux/operations";
-import { Logo, Container, Line, ContaineAvatar, Avatar, TextBox, P } from "./User.styled";
+import { Logo, Container, Line, ContaineAvatar, Avatar, TextBox, P } from "./Tweet.styled";
 import { Button } from "./Button";
 
-export const User = ({ user }) => {
+export const Tweet = ({ tweet }) => {
   const dispatch = useDispatch();
 
-  const handleToggle = () => dispatch(follow(user));
+  const handleToggle = () => dispatch(follow(tweet));
 
   return (
     <>
@@ -14,11 +14,11 @@ export const User = ({ user }) => {
       <Container />
       <Line></Line>
       <ContaineAvatar>
-        <Avatar src={user.avatar} alt={user.user} />
+        <Avatar src={tweet.avatar} alt={tweet.tweet} />
       </ContaineAvatar>
       <TextBox>
-        <P> {user.tweets} TWEETS </P>
-        <P> {user.followers.toLocaleString("en-US")} FOLLOWERS </P>
+        <P> {tweet.tweets} TWEETS </P>
+        <P> {tweet.followers.toLocaleString("en-US")} FOLLOWERS </P>
       </TextBox>
       
       

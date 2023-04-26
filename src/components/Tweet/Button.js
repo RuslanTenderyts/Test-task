@@ -1,4 +1,4 @@
-import {Btn} from "./User.styled"
+import {Btn} from "./Tweet.styled"
 
 export const Button = ({
     selected = false,
