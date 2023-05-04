@@ -1,23 +1,22 @@
 import { Logo, Container, Line, ContaineAvatar, Avatar, TextBox, P } from "./Tweet.styled";
 import { Button } from "./Button";
-import { useState, useEffect } from "react";
-import { addfollow } from "components/service/App";
+import { useState } from "react";
+import PulseLoader from 'react-spinners/PulseLoader';
+import PropTypes from 'prop-types';
 
 
-export const Tweet = ({ tweet }) => {
+export const Tweet = ({ tweet, followings, isFollowing }) => {
+  const { tweets, followers, user, avatar, id } = tweet;
 
-  const [isFollow, setIsFollow] = useState(JSON.parse(localStorage.getItem(tweet.id)) || false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFollow, setIsFollow] = useState(followings.includes(id));
 
-  useEffect(() => {
-      localStorage.setItem(tweet.id, isFollow);
-  }, [tweet.id, isFollow]);
-
-
-  const handleToggle = (id) => {
-    setIsFollow(prevState => !prevState); 
-    addfollow(id, tweet.followers)
-    console.log(id, tweet.followers)
-  }
+  const handleFollowBtn = async () => {
+    setIsLoading(true);
+    await isFollowing(id, followers, isFollow);
+    setIsFollow(pervState => !pervState);
+    setIsLoading(false);
+  };
 
   return (
     <>
@@ -25,16 +24,34 @@ export const Tweet = ({ tweet }) => {
       <Container />
       <Line></Line>
       <ContaineAvatar>
-        <Avatar src={tweet.avatar} alt={tweet.tweet} />
+        <Avatar src={avatar} alt={user} />
       </ContaineAvatar>
       <TextBox>
-        <P> {tweet.tweets} TWEETS </P>
-        <P> {tweet.followers.toLocaleString("en-US")} FOLLOWERS </P>
+        <P> {tweets} TweetS </P>
+        <P> {followers.toLocaleString("en-US")} FOLLOWERS </P>
       </TextBox>
-      
-      
-      <Button selected={isFollow} onClick={()=>handleToggle(tweet.id)}> FOLLOW </Button>
+      <Button 
+          type="button" 
+          disabled={isLoading} 
+          selected={isFollow} 
+          onClick={handleFollowBtn}
+          > 
+          {isLoading ? (
+            <PulseLoader size={10} color='#846ac2'/>
+            ) : !isFollow ? (
+              "follow"
+            ) : (
+              "follower"
+            )}
+          </Button>
          
     </>
   );
 };
+
+
+Tweet.propTypes = {
+  item: PropTypes.object,
+  followings: PropTypes.array,
+  isFollowing: PropTypes.func,
+}
