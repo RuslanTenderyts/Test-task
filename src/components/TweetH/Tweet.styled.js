@@ -17,12 +17,6 @@ export const Container = styled.div`
     margin: 28px auto 18px;
     background-image: url(${bgrCart});
 `
-export const Line = styled.p`
-width: 380px;
-height: 8px;
-background: #EBD8FF;
-box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
-`;
 
 export const ContaineAvatar = styled.div`
 position: absolute;
@@ -37,6 +31,27 @@ background: #EBD8FF;
 box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
 border-radius: 50%;
 
+     &::before {
+        content: "";
+        position: absolute;
+        left: -150px;
+        top: 36px;
+        width: 150px;
+        height: 8px;
+        background: rgb(235, 216, 255);
+        box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
+    };
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 80px;
+        top: 36px;
+        width: 150px;
+        height: 8px;
+        background: rgb(235, 216, 255);
+        box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
+    };
 `
 export const Avatar = styled.img`
 width: 62px;

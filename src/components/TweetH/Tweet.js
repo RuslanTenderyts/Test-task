@@ -1,4 +1,4 @@
-import { Logo, Container, Line, ContaineAvatar, Avatar, TextBox, P } from "./Tweet.styled";
+import { Logo, Container, ContaineAvatar, Avatar, TextBox, P } from "./Tweet.styled";
 import { Button } from "./Button";
 import { useState } from "react";
 import PulseLoader from 'react-spinners/PulseLoader';
@@ -22,12 +22,11 @@ export const Tweet = ({ tweet, followings, isFollowing }) => {
     <>
       <Logo />
       <Container />
-      <Line></Line>
       <ContaineAvatar>
         <Avatar src={avatar} alt={user} />
       </ContaineAvatar>
       <TextBox>
-        <P> {tweets} TweetS </P>
+        <P> {tweets} TWEETS </P>
         <P> {followers.toLocaleString("en-US")} FOLLOWERS </P>
       </TextBox>
       <Button 
