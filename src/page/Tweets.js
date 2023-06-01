@@ -1,5 +1,6 @@
 import { TweetsList } from "components/TweetsListH/TweetsList";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Back } from "../components/Back/Back"
 import { StatusFilter } from "components/StatusFilter/StatusFilter";
 import { useState, useEffect, useRef } from "react";
 import { fetchTweets, updFollow } from "service/App";
@@ -19,7 +20,8 @@ const Tweets = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   
-  useEffect(() => { 
+  useEffect(() => {
+    document.title = "Tweets"; 
     setError(null);
     getFetch();
     setCurrentPage(1);
@@ -85,7 +87,7 @@ const Tweets = () => {
   
   return (
     <>
-      <Link to={backLinkHref.current}>Go Back</Link>
+      <Back backLink={backLinkHref.current}> &#8592; Go Back </Back>
       <StatusFilter filter={filter} setFilter={setFilter} />
       {error && <p>{error.message}</p>}
       {isLoading ? (
@@ -99,7 +101,7 @@ const Tweets = () => {
         />
       )}
       {!isLastPage && (
-        <Button type="button" onClick={handleLoadMore}>
+        <Button type="button" onClick={handleLoadMore} loadMore>
           Load More
         </Button>
       )}

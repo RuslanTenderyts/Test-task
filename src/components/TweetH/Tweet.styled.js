@@ -80,7 +80,7 @@ padding: 14px 28px;
 width: 196px;
 height: 50px;
 overflow: hidden;
-background: ${props => props.selected ? "#5CD3A8" :  "#EBD8FF" };
+background: ${(props => props.selected ? "#5CD3A8" : (props => props.loadMore ? "#9f8ee0" : "#EBD8FF"))};
 box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
 border-radius: 10.3108px;
 margin: 0 auto;
@@ -93,10 +93,11 @@ border: none;
 cursor: pointer;
     
     &:hover {
-        background: ${props => props.selected ? "#45a582" : "#ebd8ffc2"};
+        opacity: 0.9;
+        color: ${(props => props.loadMore ? "#ebd8ff" : "#2e2487")};
     }
     &:active {
         box-shadow: inset 0 0 10px #4b2a99;
-        color: #EBD8FF;
+        color: #471CA9;
     }
 `

@@ -1,6 +1,15 @@
+import { useEffect } from "react";
+import { Welcome } from "components/Welcome/Welcome";
+
 const Home = () => {
+    useEffect(() => {
+        document.title = "Home";
+      }, []);
+
     return (
-        <div>Home</div>
+        <>
+            <Welcome />
+        </>
     )
 };
 
