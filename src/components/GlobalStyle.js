@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize'
+import  bgrCart from "components/img/bgrCart.png"
+import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 body {
@@ -9,6 +10,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  background-color: #2e2487;
+  background-image: url(${bgrCart});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 60%;
 }
 
 code {
