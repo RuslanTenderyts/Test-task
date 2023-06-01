@@ -1,8 +1,8 @@
 
 import {Link} from "./Back.stayled"
 
-export const Back = ({backLink, children }) => {
+export const Back = ({link, children }) => {
     return(
-        <Link to={backLink} >{children}</Link>
+        <Link to={link} >{children}</Link>
     )
 };

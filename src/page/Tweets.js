@@ -87,7 +87,7 @@ const Tweets = () => {
   
   return (
     <>
-      <Back backLink={backLinkHref.current}> &#8592; Go Back </Back>
+      <Back link={backLinkHref.current}> &#8592; Go Back </Back>
       <StatusFilter filter={filter} setFilter={setFilter} />
       {error && <p>{error.message}</p>}
       {isLoading ? (

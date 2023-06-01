@@ -10,7 +10,7 @@ export const Welcome = () => {
         <P>
                 Enjoy the latest tweets and stay connected!
         </P>
-        <Back welcome={true} >Go to Tweets </Back>
+        <Back link={"/tweets"} >Go to Tweets </Back>
 
         </Container>
     )
